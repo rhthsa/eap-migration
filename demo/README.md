@@ -6,8 +6,7 @@
 2. Migration Toolkit for Application (MTA)
     * Plugin - If you need to use it with the IDE
     * Command Line Interface - completed CLI
-    * Web Console - Comes with JBoss EAP
-
+    * Web Console - Full web application comes with JBoss EAP
 3. JBoss EAP 7.x
 4. Docker
 
@@ -15,7 +14,7 @@
 
 For the MTA plugin, you can install it via the IDE plugin feature e.g. VSCode Extension for Visual Studio Code or the marketplace for CodeReady Studio.
 
-If you need to go with command line or web console flavour, you can follow this instruction.
+If you need to go with command line or web console flavour, you can follow these steps.
 
 1. Go to [Red Hat Developer portral](https://developers.redhat.com/)
 
@@ -27,13 +26,13 @@ If you need to go with command line or web console flavour, you can follow this 
 
 ## Database setup
 
-The application requires a PostgreSQL database so we need start and setup a PostgreSQL database using Docker.
+The demo application requires a PostgreSQL database so we need to setup a PostgreSQL database using Docker.
 
 `docker run -p 5432:5432 -e POSTGRES_USER=coolstore -e POSTGRES_PASSWORD=coolstore123 -e POSTGRES_DB=monolith postgres`
 
 ## JBoss EAP setup
 
-### Enable Admin user
+### Enable Admin user (optional)
 
 1. Run `$JBOSS_HOME/bin/add-user.sh`
 
@@ -75,7 +74,7 @@ The application requires a PostgreSQL database so we need start and setup a Post
 
 1. Clone this repository to you local machine.
 2. Switch to the `weblogic` branch.
-3. Run MTA to analyze the application and generate a report.
+3. Run MTA to analyze the demo application and generate a report.
     * For **CLI**, `./mta-cli --sourceMode --input /path/to/eap-migration/demo/project/monolith --output /path/for/report --target eap7 --source weblogic`
     * For **Visual Studio Code**, Use the MTA plugin to create a MTA Configuration and run it.
     * For **CodeReady Studio**, a Run Configuration needs to be created. Check this [guide](https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/5.1/html/ide_plugin_guide/index) for how to do it.
